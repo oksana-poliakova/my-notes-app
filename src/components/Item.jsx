@@ -16,6 +16,15 @@ function Item({ title, id, status }) {
 
     const updateStatus = () => {
         setChecked(!checked);
+        const storedTodos = JSON.parse(localStorage.getItem('tasks'));
+
+        storedTodos.map((item) => {
+            if (item.id === id) {
+                item.status = !checked;
+            }
+            return true;
+        })
+        localStorage.setItem('tasks', JSON.stringify(storedTodos));
     };
 
     return (
