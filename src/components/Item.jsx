@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 
+// This functional component represents a task item in the list
+
 function Item({ title, id, status }) {
     const [checked, setChecked] = useState(status);
     const [classes, setClasses] = useState(["todo"]); 
