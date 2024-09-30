@@ -15,6 +15,8 @@ function Item({ title, id, status }) {
         setClasses(updatedClasses);
     }, [checked]);
 
+    // Function to update the 'checked' status and synchronize it with localStorage
+
     const updateStatus = () => {
         setChecked(!checked);
         const storedTodos = JSON.parse(localStorage.getItem('tasks'));
@@ -25,8 +27,11 @@ function Item({ title, id, status }) {
             }
             return true;
         })
+        // Store the updated task list back in localStorage
         localStorage.setItem('tasks', JSON.stringify(storedTodos));
     };
+
+    // Function to remove the task from the list and update localStorage
 
     const removeElement = () => {
         setVisible(prev => !prev);
@@ -42,6 +47,8 @@ function Item({ title, id, status }) {
         localStorage.setItem('tasks', JSON.stringify(removeTodos));
     }
 
+    // Render the task item, only if it is visible
+    
     return (
         <>
             {visible && (

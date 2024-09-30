@@ -2,7 +2,11 @@ import { useState, useEffect } from "react";
 import List from "./components/List";
 import { v4 as uuidv4} from "uuid";
 
+// This functional component represents the main task management system
+
 function Main() {
+
+    // 'tasks' holds the list of tasks, either from localStorage or an empty array if no tasks are stored
 
     const [tasks, setTasks] = useState(() => {
         const storedTodos = localStorage.getItem('tasks');
@@ -12,6 +16,8 @@ function Main() {
             return JSON.parse(storedTodos);
         }
     })
+
+    // Function to add a task when the Enter key is pressed
 
     const addTask = (event) => {
         const storedTodos = JSON.parse(localStorage.getItem('tasks'));
@@ -28,6 +34,8 @@ function Main() {
         }
     }
 
+    // Create a new Date object and get current month, day, and year
+
     const [tasksTitle, setTasksTitle] = useState('');
     const date = new Date();
     const monthsList = [
@@ -37,7 +45,9 @@ function Main() {
     const currentMonth = monthsList[date.getMonth()];
     const currentDay = date.getDay();
     const currentYear = date.getFullYear();
-      
+    
+    // useEffect to update localStorage whenever the tasks array changes
+    
     useEffect(() => {
         localStorage.setItem('tasks', JSON.stringify(tasks));
     }, [tasks]);

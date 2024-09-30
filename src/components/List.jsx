@@ -1,5 +1,7 @@
 import Item from "./Item";
 
+// This functional component represents a list of tasks
+
 function List({tasks}) {
     
     return (
