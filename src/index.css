@@ -6,6 +6,3 @@ body {
     background-color: rgb(211, 235, 243);
 }
 
-.todo.status label span {
-    text-decoration: line-through !important;
-}

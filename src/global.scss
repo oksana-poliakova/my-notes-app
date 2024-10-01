@@ -2,7 +2,7 @@
 
 .todo {    
     margin-bottom: 15px;
-    
+
     label {
         display: flex;
         width: 100%;
@@ -30,7 +30,7 @@
 
     &.status {
         span {
-            text-decoration: line-through !important;
+            text-decoration: line-through;
         }
     }
 }
